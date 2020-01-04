@@ -1,0 +1,26 @@
+{
+    "name": "kumarrahul/salaryslipuploader",
+    "description": "This is an extension for worksuite to upload and fetch salary slip",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rahul Kumar",
+            "email": "rahulverma.rkv@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Kumarrahul\\salaryslipuploader\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kumarrahul\\salaryslipuploader\\SalarySlipProvider"
+            ]
+        }
+    }
+}
