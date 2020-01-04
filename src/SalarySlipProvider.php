@@ -1,21 +1,34 @@
 <?php
 
-namespace Kumarrahul\salarysliuploader;
-use Illuminate\Support\ServiceProvider;
+namespace Kumarrahul\salaryslipuploader;
 
-class SalarySlipProvider extends ServiceProvider {
+use Illuminate\Support\ServiceProvider;
+use App\Http\Controllers\Controller;
     
-    public function boot() {
-        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
-        /*$this->loadViewsFrom(__DIR__ . '/resources/views', 'rdashboardui');
+class SalarySlipProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'salaryslipuploader');
+        $this->loadMigrationsFrom(__DIR__.'/Database/migrations');
         $this->publishes([
-            __DIR__.'/assets' => public_path('assets'),
-            __DIR__.'/resources/views' => resource_path('views/kumarrahul/rdashboardui'),
-        ], 'rdashboardui');*/
+            __DIR__.'/resources/views' => resource_path('views/kumarrahul/salaryslipuploader'),
+        ], 'salaryslipuploader');
     }
-    
-    public function register() {
-        
+
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+       
     }
-    
 }
