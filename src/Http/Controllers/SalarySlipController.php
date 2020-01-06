@@ -76,10 +76,17 @@ class SalarySlipController extends MemberBaseController
     }
     
     public function download(Request $request, $slip_id) {
+        
+        $emp_id = EmployeeDetails::where('user_id', $this->user->id)->pluck('employee_id');
         $slips = SalarySlip::where('id', $slip_id)->pluck('file_name');
-        $file_link = url('/').'/salary-slip/'.$slips[0];
-        header('Location: '.$file_link);
-        exit;
+        
+        if (strpos($slips[0], $emp_id[0]) !== false) {
+            $file_link = url('/').'/salary-slip/'.$slips[0];
+            return response()->file(public_path('salary-slip/'.$slips[0]));
+        } else {
+           abort(403);
+        }
+        
     }
 
 }
